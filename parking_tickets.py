@@ -10,7 +10,7 @@ class ParkingTickets(object):
         
     def __iter__(self):
         return ParkingTickets.parking_tickets_gen(self.filename)
-    
+
     @staticmethod
     def parse_record(line):
         columns = line.split(',')
@@ -19,7 +19,7 @@ class ParkingTickets(object):
             columns[1],
             columns[2],
             columns[3],
-            columns[4],
+            datetime.strptime(columns[4],'%m/%d/%Y'),
             int(columns[5]),
             columns[6],
             columns[7],
